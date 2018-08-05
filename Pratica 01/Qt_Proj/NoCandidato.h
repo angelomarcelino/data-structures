@@ -3,6 +3,7 @@
 
 #include "Candidato.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -15,8 +16,18 @@ public:
     inline NoCandidato(): conteudo(NULL), next(NULL) {}
     inline NoCandidato(Candidato *c, NoCandidato *nx): conteudo(c), next(nx) {}
 
-
-
+    string toString() {
+        string aux;
+        NoCandidato *nc = this;
+        while (nc!=NULL)
+        {
+            aux += nc->conteudo->toString();
+            aux += " -> ";
+            nc = nc->next;
+        }
+        aux += "0";
+        return aux;
+    }
 
 };
 

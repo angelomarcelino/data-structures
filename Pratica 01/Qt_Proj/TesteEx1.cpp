@@ -31,6 +31,6 @@ int main(){
   cout << "que e o ultimo no, pois m->next->next vale ";
   cout << m->next->next << endl << endl;
 
-  //  cout << m->toString() << endl;
+  cout << m->toString() << endl;
 
 }
