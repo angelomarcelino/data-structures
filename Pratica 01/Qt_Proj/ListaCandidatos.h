@@ -17,6 +17,7 @@ public:
 
     //Construtores
     inline ListaCandidatos(): head(NULL) {}
+
     ListaCandidatos(string arq): head(NULL) {
         ifstream fcin(arq);
 
@@ -32,7 +33,9 @@ public:
 
     //Métodos
     inline void adicioneComoHead(Candidato *c) {head = new NoCandidato(c,head);}
+
     inline bool estaVazia() {return head==NULL;}
+
     int tamanho() const {
         NoCandidato *aux = head;
         int cont(0);
@@ -43,14 +46,16 @@ public:
         }
         return cont;
     }
+
     string toString() const {
         stringstream stream;
         stream << head->toString();
         return stream.str();
     }
+
     bool remove(string nome, string sobrenome){
         NoCandidato* it = head;
-        NoCandidato* aux;
+        NoCandidato* aux = NULL;
         bool achou = false;
         while(!achou && it!=NULL){
             if(it->conteudo->igual(nome,sobrenome))
@@ -72,6 +77,22 @@ public:
             }
         }
         return achou;
+    }
+
+    void filtrarCandidatos(int nota){
+        NoCandidato* it=head;
+        NoCandidato* aux = NULL;
+        while(it!=NULL){
+            if(it->conteudo->menorQnota(nota))
+            {
+                aux = it->next;
+                remove(it->conteudo->nome,it->conteudo->sobrenome);
+                it = aux;
+            } else {
+                it = it->next;
+            }
+
+        }
     }
 };
 

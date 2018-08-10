@@ -31,5 +31,7 @@ class Candidato{
     else return false;
   }
 
+  inline bool menorQnota(int num) {return nota<num;}
+
 };
 #endif
