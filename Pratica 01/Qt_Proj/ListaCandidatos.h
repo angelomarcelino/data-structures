@@ -50,35 +50,29 @@ public:
     }
     bool remove(string nome, string sobrenome){
         NoCandidato* it = head;
+        NoCandidato* aux;
         bool achou = false;
-        int cont = 0;
         while(!achou && it!=NULL){
             if(it->conteudo->igual(nome,sobrenome))
             {
                 achou = true;
-                if(cont==0)
+                if(it == head)
                 {
                     head = it->next;
                     delete it;
                 }
-                else
-                {
-                    NoCandidato* aux = head;
-                    for(int i=0; i<cont-1; i++)
-                    {
-                        aux = aux->next;
-                    }
+                else {
                     aux->next = it->next;
                     delete it;
                 }
-
             }
-            else it = it->next;
-            cont ++;
+            else { 
+                aux = it;
+                it = it->next;
+            }
         }
         return achou;
     }
-
 };
 
 #endif // LISTACANDIDATOS_H
