@@ -28,7 +28,7 @@ int pinSensor = 13;
 bool refAnterior = false; // lendo branco recebe 0 
 bool refAtual = false;  // lendo branco recebe 0 
 // variavel de aceleracao
-int acelerador = 0;
+int acelerador = 1;
 bool flag = false;
 
 void setup() {
@@ -78,13 +78,17 @@ void loop() {
   if (flag == true)
   {
     int *coisa = sm.acelera(acelerador);
-    /* Serial.print("[");
+    /*Serial.print("[");
     Serial.print(coisa[0]);
     Serial.print(";");
     Serial.print(coisa[1]);
-    Serial.println("]"); */
-    if(acelerador < 90) acelerador++; // Aceleração
+    Serial.println("]");
+    Serial.print(acelerador);*/
+    if(acelerador < 95) acelerador++; // Aceleração
+    delay(100);
   }
+  else acelerador = 0;
+  
   refAnterior = refAtual; 
   delay(30); // intervalo mínimo entre as leituras do sensor de reflectância 
 }

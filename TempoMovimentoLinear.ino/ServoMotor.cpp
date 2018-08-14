@@ -7,12 +7,27 @@ ServoMotor::ServoMotor(){
 }
 
 int* ServoMotor::acelera(int acelerador){
-   if (acelerador+paradoDireito < 180) mDireito.write(paradoDireito+acelerador);
-   if (acelerador+paradoDireito > 0) mEsquerdo.write(paradoEsquerdo-acelerador);
-   int mdir = paradoDireito+acelerador;
-   int mesq = paradoEsquerdo-acelerador;
    int *ret = new int[2];
-   ret[0]= mdir; ret[1] = mesq;
+   int mdir = paradoDireito+acelerador;
+   int mesq = paradoEsquerdo+5-acelerador;
+   if (mdir <= 180){
+      mDireito.write(mdir);
+      ret[1] = mdir;
+   }
+   else {
+      mdir = 180;
+      mDireito.write(mdir);
+      ret[1] = mdir;
+   }
+   if (mesq > 0) {
+      mEsquerdo.write(mesq);
+      ret[0]= mesq; 
+   }
+   else {
+      mesq = 0;
+      mEsquerdo.write(mesq);
+      ret[0]= mesq;
+   }
    return ret;
 }
 
