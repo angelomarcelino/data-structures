@@ -84,7 +84,8 @@ void loop() {
     Serial.print(coisa[1]);
     Serial.println("]");
     Serial.print(acelerador);*/
-    if(acelerador < 95) acelerador++; // Aceleração
+    if((coisa[0]==0)&&(coisa[1]==180)) Serial.println("Maxima velocidade"); 
+    else acelerador++; // Aceleração
     delay(100);
   }
   else acelerador = 0;

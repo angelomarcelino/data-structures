@@ -9,25 +9,13 @@ ServoMotor::ServoMotor(){
 int* ServoMotor::acelera(int acelerador){
    int *ret = new int[2];
    int mdir = paradoDireito+acelerador;
-   int mesq = paradoEsquerdo+5-acelerador;
-   if (mdir <= 180){
-      mDireito.write(mdir);
-      ret[1] = mdir;
-   }
-   else {
-      mdir = 180;
-      mDireito.write(mdir);
-      ret[1] = mdir;
-   }
-   if (mesq > 0) {
-      mEsquerdo.write(mesq);
-      ret[0]= mesq; 
-   }
-   else {
-      mesq = 0;
-      mEsquerdo.write(mesq);
-      ret[0]= mesq;
-   }
+   int mesq = paradoEsquerdo-acelerador;
+   if (mdir > 180) mdir = 180; 
+   if (mesq < 0) mesq = 0;
+   mDireito.write(mdir);
+   mEsquerdo.write(mesq);
+   ret[0]= mesq;
+   ret[1] = mdir;
    return ret;
 }
 
@@ -37,8 +25,6 @@ void ServoMotor::setup(int pinEsquerda,int pinDireita){
     intensidade = 40; 
     mDireito.attach(pinDireita);
     mEsquerdo.attach(pinEsquerda);  
-
-
 } 
 
 void ServoMotor::calibra(int pEsq, int pDir){
