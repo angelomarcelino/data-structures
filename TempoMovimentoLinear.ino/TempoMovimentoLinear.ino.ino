@@ -77,16 +77,17 @@ void loop() {
 
   if (flag == true)
   {
-    int *coisa = sm.acelera(acelerador);
-    /*Serial.print("[");
+    int inicial = 30;
+    int *coisa = sm.acelera(acelerador,inicial);
+    Serial.print("[");
     Serial.print(coisa[0]);
     Serial.print(";");
     Serial.print(coisa[1]);
     Serial.println("]");
-    Serial.print(acelerador);*/
+    Serial.print(acelerador);
     if((coisa[0]==0)&&(coisa[1]==180)) Serial.println("Maxima velocidade"); 
     else acelerador++; // Aceleração
-    delay(100);
+    delay(250);
   }
   else acelerador = 0;
   

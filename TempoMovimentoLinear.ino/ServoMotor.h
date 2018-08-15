@@ -15,7 +15,7 @@
         void re(); 
         void parado();
         void calibra(int pEsq, int pDir);
-        int* acelera(int acelerador);
+        int* acelera(int acelerador, int inicial);
 
       
         
