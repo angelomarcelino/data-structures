@@ -46,17 +46,19 @@ void loop() {
   if (Serial.available())
   {
     c = Serial.read();
-    if (c == 'i') { // iniciar o experimento 
+    if ((c == 'i')||(c == 'I')) { // iniciar o experimento 
       flag = false;
       sm.frente(); 
+      contMudanca = 0;
     }
-    else if (c == 'p') { // parar o experimento 
+    else if ((c == 'p')||(c == 'P')) { // parar o experimento 
       flag = false;
       sm.parado();
       contMudanca = 0; 
     }
-    else if (c == 'a') { // acelerar
+    else if ((c == 'a')||(c == 'A')) { // acelerar
       flag = true;
+      contMudanca = 0;
     }
   }
   if ( ! refAnterior && refAtual) { // detectar transição entre branco e preto 
@@ -72,22 +74,21 @@ void loop() {
       Serial.print(": "); 
       Serial.println(tempReal); 
     }
-    
   }
 
   if (flag == true)
   {
     int inicial = 30;
     int *coisa = sm.acelera(acelerador,inicial);
-    Serial.print("[");
+    /*Serial.print("[");
     Serial.print(coisa[0]);
     Serial.print(";");
     Serial.print(coisa[1]);
     Serial.println("]");
-    Serial.print(acelerador);
+    Serial.print(acelerador);*/
     if((coisa[0]==0)&&(coisa[1]==180)) Serial.println("Maxima velocidade"); 
     else acelerador++; // Aceleração
-    delay(250);
+    delay(150);
   }
   else acelerador = 0;
   
