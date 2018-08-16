@@ -35,7 +35,7 @@ void setup() {
   Serial.begin(9600); 
   pinMode(pinSensor,INPUT); 
   sm.setup(11,10);
-  sm.calibra(90,85);
+  sm.calibra(85,85);
   delay(100); 
   sm.parado(); 
 }
@@ -78,7 +78,7 @@ void loop() {
 
   if (flag == true)
   {
-    int inicial = 30;
+    int inicial = 0;
     int *coisa = sm.acelera(acelerador,inicial);
     /*Serial.print("[");
     Serial.print(coisa[0]);
