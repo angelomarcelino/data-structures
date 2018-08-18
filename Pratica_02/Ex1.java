@@ -4,12 +4,17 @@ import java.util.LinkedList;
 class Mergesort {
 
     static void split(LinkedList<Integer> l, LinkedList<Integer> l1, LinkedList<Integer> l2) {
-        // a ser completada
+        for (int i=0; i<l.size(); i++)
+        {
+            if (i<=l.size()/2) l1.add(l.get(i));
+            else l2.add(l.get(i));
+        }
     }
 
-    static LinkedList<Integer> merge(LinkedList<Integer> l1,
-                                     LinkedList<Integer> l2) {
-        return null; // a ser completada
+    static LinkedList<Integer> merge(LinkedList<Integer> l1, LinkedList<Integer> l2) {
+        LinkedList<Integer> l;
+        
+        return l; // a ser completada
     }
 
     static LinkedList<Integer> mergesort(LinkedList<Integer> l) {
@@ -17,7 +22,7 @@ class Mergesort {
     }
 }
 
-// A classe Ex1 é fornecida fournie, para testar o código de Mergesort
+// A classe Ex1 e fornecida fournie, para testar o codigo de Mergesort
 class Ex1 {
 
     static boolean is_sorted(LinkedList<Integer> l) {
@@ -30,7 +35,7 @@ class Ex1 {
         return true;
     }
 
-    static final int M = 10; // os elementos estão entre 0..M-1
+    static final int M = 10; // os elementos estao entre 0..M-1
 
     static int[] occurrences(LinkedList<Integer> l) {
         int[] occ = new int[M];

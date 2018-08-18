@@ -12,7 +12,7 @@ class DutchFlag {
 
 }
 
-// A classe Ex2 é fornecida, para testar o código de DutchFlag
+// A classe Ex2 e fornecida, para testar o codigo de DutchFlag
 class Ex2 {
     static boolean is_sorted(int[] a) {
         for (int i = 1; i < a.length; i++)
@@ -20,7 +20,7 @@ class Ex2 {
         return true;
     }
 
-    static final int M = 3; // os elementos estão entre 0..2
+    static final int M = 3; // os elementos estao entre 0..2
 
     static int[] occurrences(int[] a) {
         int[] occ = new int[M];
