@@ -1,0 +1,13 @@
+= Projeto URA (Versão 4)
+:listing-caption: Listing
+:toc: left
+:icons: font
+:source-highlighter: highlightjs
+
+Documentação da versão 4 do projeto _https://github.com/lar-ect/URA[Um Robô por Aluno^]_.
+
+=== Componentes
+=== Montagem
+=== Etapas da programação
+=== Motivação
+
