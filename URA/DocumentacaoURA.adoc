@@ -4,10 +4,38 @@
 :icons: font
 :source-highlighter: highlightjs
 
-Documentação da versão 4 do projeto _https://github.com/lar-ect/URA[Um Robô por Aluno^]_.
+== Introdução
 
-=== Componentes
-=== Montagem
-=== Etapas da programação
-=== Motivação
+* Este arquivo tem como objetivo relatar as modificações, bem como o processo de montagem da **Versão 4** do projeto _https://github.com/lar-ect/URA[Um Robô por Aluno (URA)^]_, idealizado pelo professor _https://github.com/orivaldosantana[Orivaldo Santana^]_, e realizado pelos alunos do _https://github.com/lar-ect[Laboratório de Robótica (LAR)^]_ da _http://www.ect.ufrn.br/[Escola de Ciências e Tecnologia (ECT)^]_.
+
+* Nessa versão, os robôs foram construídos com o intuito de realizar experimentos físicos de **_Movimento Retilínio Uniforme_** e **_Uniformimente Variado (MRU e MRUV)_** juntamente com a mestranda em física **_Natana Rodrigues_**, que aplicou esses experimentos junto a alunos de ensino médio.
+
+== Componentes
+== Montagem
+== Etapas da programação
+
+* Após a montagem do robô, foram realizados testes como _proof of concept_ para comprovar se os motores e métodos adotados eram suficientemente viáveis para a realização de trajetos em MRU e MRUV.
+
+=== Rotação dos motores
+* Primeiramente, com o código seguinte, testou-se como os motores se comportavam em relação a direção de rotação e a proporção entre o valor escrito em _Pulse Width Modulation (PWM)_ e o resultante em RPM.
+
+[source, c++]
+._teste_rotacao.ino_
+----
+#include <Servo.h>
+
+Servo mDir, mEsq;  // servo motores
+int val = 0; // valor de teste
+...
+void loop() {
+  mDir.write(val);
+  mEsq.write(val);
+  delay(150);
+  Serial.println(val); // mostra o valor que foi escrito nos motores
+  if(val<180) val++;
+  else val = 0; // faz com que o valor escrito seja circular 0-180
+}
+----
+
+== Motivação
 
