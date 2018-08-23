@@ -1,4 +1,4 @@
-= Projeto URA (Versão 4)
+= Projeto URA - Versão 4
 :listing-caption: Listing
 :toc: left
 :icons: font
@@ -13,11 +13,34 @@
 == Componentes
 == Montagem
 == Etapas da programação
+* A realização do projeto contou com a criação de uma classe em `C++` que gerencia ambos os motores do carro com auxílio da biblioteca https://www.arduino.cc/en/Reference/Servo[Servo^], e métodos que ajudam o controle do robô por meio da interface bluetooth adotada. A classe com suas alterações finais, bem como a implementação no _arduino_, estão disponíveis https://github.com/lar-ect/URA/tree/master/versao%204/codigos/arduino/devs/Fisica/TempoMovimenoLinear[aqui^].
 
-* Após a montagem do robô, foram realizados testes como _proof of concept_ para comprovar se os motores e métodos adotados eram suficientemente viáveis para a realização de trajetos em MRU e MRUV.
+* Durante a implementação, foram realizados testes como _proof of concept_ para comprovar se os motores e métodos adotados eram suficientemente viáveis para a realização de trajetos em **MRU** e **MRUV**, para tanto, foram observados as seguintes variáveis:
+
+=== Potência dos motores
+* Primeiramente, a ideia adotada para a escrever uma potência constante no mortor _Servo_ foi utilizar o método `writeMicroseconds(int)` referenciado https://www.arduino.cc/en/Reference/ServoWriteMicroseconds[aqui^]. Com este método mapeamos os valores dos motores de um carrinho para:
+
+[%autowidth]
+.Valores dos motores em uS de min - máx
+|===
+|Servo |Parado |Horário |Anti-horário
+
+|Motor esquerdo
+|1450
+|1449 - 0
+|1451 - 1800
+
+|Motor direito
+|1450
+|1451 - 1800
+|1449 - 0
+
+|===
+
+* Entretanto...
 
 === Rotação dos motores
-* Primeiramente, com o código seguinte, testou-se como os motores se comportavam em relação a direção de rotação e a proporção entre o valor escrito em _Pulse Width Modulation (PWM)_ e o resultante em RPM.
+* Com o código seguinte, testou-se como os motores se comportavam em relação a direção de rotação e a proporção entre o valor escrito em _Pulse Width Modulation (PWM)_.
 
 [source, c++]
 ._teste_rotacao.ino_
@@ -38,4 +61,3 @@ void loop() {
 ----
 
 == Motivação
-
