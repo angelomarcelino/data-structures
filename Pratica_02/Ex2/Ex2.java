@@ -3,16 +3,54 @@
 class DutchFlag {
 
     static void swap(int[] a, int i, int j) {
-        // a ser completada
+        int aux = a[i];
+        a[i] = a[j];
+        a[j] = aux;
     }
 
     static void dutch_flag(int[] a) {
         // a ser completada
+        int i = 0;
+        int b = 0;
+        int r = a.length - 1;
+        
+        while (r >= i){
+            switch (a[i]){
+                case 0:
+                    swap(a,i,b);
+                    b++;
+                    i++;
+                    break;
+                case 1:
+                    i++;
+                    break;
+                case 2:
+                    swap(a,i,r);
+                    r--;
+                    break;
+                default:
+                    break;
+            }
+            /*
+            if(a[i] == 0){
+                swap(a,i,b);
+                b++;
+                i++;
+            }
+            else if(a[i] == 2){
+                swap(a,i,r);
+                r--;
+            }
+            else if(a[i] == 1){
+                i++;
+            }
+            */
+        }
     }
 
 }
 
-// A classe Ex2 e fornecida, para testar o codigo de DutchFlag
+// A classe Ex2 � fornecida, para testar o c�digo de DutchFlag
 class Ex2 {
     static boolean is_sorted(int[] a) {
         for (int i = 1; i < a.length; i++)
@@ -20,7 +58,7 @@ class Ex2 {
         return true;
     }
 
-    static final int M = 3; // os elementos estao entre 0..2
+    static final int M = 3; // os elementos est�o entre 0..2
 
     static int[] occurrences(int[] a) {
         int[] occ = new int[M];

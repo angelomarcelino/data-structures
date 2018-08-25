@@ -3,24 +3,65 @@
 class Quicksort {
 
     static void swap(int[] a, int i, int j) {
-        // a ser completada
+        int aux = a[i];
+        a[i] = a[j];
+        a[j] = aux;
     }
 
     static int partition(int[] a, int l, int r) {
-        return 0; // a ser completada
+        int esq = l;
+        int dir = r;
+        int pivo = a[l];
+        /*
+        teste de hipÃ³tese: p = pivo; d = direita; e = esquerda
+        [1,6,4,3,0,8,2] inicio
+         ^p          ^d
+         ^e
+        [1,6,4,3,0,8,2] e > pivo & d < pivo 
+         ^p      ^d
+           ^e
+        [1,0,4,3,6,8,2] swap d,e
+         ^p      ^d
+           ^e
+        [1,0,4,3,6,8,2] d < pivo & e > pivo mas e > d
+         ^p^d
+             ^e
+        [0,1,4,3,6,8,2] saiu do while e return d
+         ^p^d
+             ^e
+        */
+        while (esq < dir)
+        {
+            while(esq < a.length && a[esq] <= pivo) {
+                esq++;
+            }
+            while(dir >= 0 && a[dir] > pivo){
+                dir--;
+            }
+            if (esq < dir) swap(a,esq,dir);
+        }
+        a[l] = a[dir];
+        a[dir] = pivo;
+        return dir;
     }
 
     static void quickrec(int[] a, int l, int r) {
         // a ser completada
+        if(l < r){
+            int posPivo = partition(a,l,r);
+            quickrec(a, l, posPivo - 1);
+            quickrec(a, posPivo + 1, r);
+        }   
     }
 
     static void quicksort(int[] a) {
         // a ser completada
+        quickrec(a,0,a.length -1);
     }
 
 }
 
-// A classe Ex3 é fornecida, para testar o código de Quicksort
+// A classe Ex3 ï¿½ fornecida, para testar o cï¿½digo de Quicksort
 class Ex3 {
     static boolean is_sorted(int[] a) {
         for (int i = 1; i < a.length; i++)
@@ -28,7 +69,7 @@ class Ex3 {
         return true;
     }
 
-    static final int M = 10; // os elementos estão entre 0..M-1
+    static final int M = 10; // os elementos estï¿½o entre 0..M-1
 
     static int[] occurrences(int[] a) {
         int[] occ = new int[M];
