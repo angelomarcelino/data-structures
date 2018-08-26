@@ -1,7 +1,7 @@
 # Data Structures
 Projects of the subject Data Structures, of the Federal University of Rio Grande do Norte, semester 2018.2
 
-## Simple linked list
+## Simple Linked List
 ### Objective
 To develop and test classes in `C++`  that build the simple linked list data structure.
 
@@ -17,16 +17,15 @@ To develop and test classes in `C++`  that build the simple linked list data str
 
 ## Sorting Algorithms
 ### Objective
-To develop and test classes in `Java`  that build a few examples of sorting algorithms.
+To develop and test classes in `Java`  that build three examples of sorting algorithms.
 
 ### Folder description
-- **_/mergesort_**: Folder containing the implemented *MergeSort* class, plus tests used to prove the sorting capacity of this code. To try it, open and run the `Ex1.java` file.
+- **_/mergesort_**: Folder containing the implemented [MergeSort](https://pt.wikipedia.org/wiki/Merge_sort) class, plus tests used to prove the sorting capacity of this code. To try it, open and run the `Ex1.java` file.
 
-- **_/dutchflag_**: Folder containing the implemented *DutchFlag* class, plus tests used to prove the sorting capacity of this code. To try it, open and run the `Ex2.java` file.
+- **_/dutchflag_**: Folder containing the implemented [DutchFlag](https://en.wikipedia.org/wiki/Dutch_national_flag_problem) class, plus tests used to prove the sorting capacity of this code. To try it, open and run the `Ex2.java` file.
 
-- **_/quicksort_**: Folder containing the implemented *QuickSort* class, plus tests used to prove the sorting capacity of this code. To try it, open and run the `Ex3.java` file.
+- **_/quicksort_**: Folder containing the implemented [QuickSort](https://pt.wikipedia.org/wiki/Quicksort) class, plus tests used to prove the sorting capacity of this code. To try it, open and run the `Ex3.java` file.
 
 - **_praticaMOD2.pdf_**: The `.pdf` file containing full instructions *in portuguese* for the realization of this project.
 
-- **_praticaMOD2.zip_**: The `.rar` provided by the teacher at the beginning of the project. It contains the unchanged files from the project assignment.
-
+- **_praticaMOD2.rar_**: The `.rar` provided by the teacher at the beginning of the project. It contains the unchanged files from the project assignment.
