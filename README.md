@@ -1,5 +1,9 @@
 # Data Structures
 Projects of the subject Data Structures, of the Federal University of Rio Grande do Norte, semester 2018.2
+<!--ts-->
+   * [Simple Linked List](#simple-linked-list)
+   * [Sorting Algorithms](#sorting-algorithms)
+<!--te-->
 
 ## Simple Linked List
 ### Objective
