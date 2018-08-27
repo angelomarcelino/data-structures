@@ -4,21 +4,55 @@ import java.util.LinkedList;
 class Mergesort {
 
     static void split(LinkedList<Integer> l, LinkedList<Integer> l1, LinkedList<Integer> l2) {
-        for (int i=0; i<l.size(); i++)
-        {
-            if (i<=l.size()/2) l1.add(l.get(i));
-            else l2.add(l.get(i));
-        }
+    	for (int i = 0; i < l.size(); i++) {
+    		if (i < (l.size()/2) ) {
+    			l1.add(l.get(i));
+    		} else {
+    			l2.add(l.get(i));
+    		}
+		}
     }
 
-    static LinkedList<Integer> merge(LinkedList<Integer> l1, LinkedList<Integer> l2) {
-        LinkedList<Integer> l;
-        
-        return l; // a ser completada
+    static LinkedList<Integer> merge(LinkedList<Integer> l1,
+                                     LinkedList<Integer> l2) {
+    	
+    	LinkedList<Integer> l = new LinkedList<>();
+    	
+    	int tam = l1.size() + l2.size();
+    	int i1 = 0, i2 = 0;
+
+    	for (int i = 0; i < tam; i++) {
+    		if (i1 >= l1.size() ) {
+    			l.add(l2.get(i2));
+    			i2++;
+    		} else if (i2 >= l2.size() ) {
+    			l.add(l1.get(i1));
+    			i1++;
+    		} else {
+    			if (l1.get(i1) < l2.get(i2)) {
+    				l.add(l1.get(i1));
+    				i1++;
+    			} else {
+    				l.add(l2.get(i2));
+    				i2++;
+    			}
+    		}
+			
+		}
+        return l;
     }
 
     static LinkedList<Integer> mergesort(LinkedList<Integer> l) {
-        return null; // a ser completada
+        if(l.size() > 1){
+            LinkedList<Integer> l1 = new LinkedList<>();
+            LinkedList<Integer> l2 = new LinkedList<>();
+            split(l, l1, l2);
+            l1 = mergesort(l1);
+            l2 = mergesort(l2);
+            return merge(l1,l2);
+        }
+        
+        return l;
     }
 }
 
