@@ -37,7 +37,17 @@
 
 |===
 
-* Entretanto...
+* Entretanto os valores encontrados não eram constantes para todos os motores, além de o intervalo entre os valorem mínimos e máximos não se comportaram de maneira linear em relação ao _RPM_ resultante. Portanto o uso da função `writeMicroseconds(int)` funcionou somente na implementação da função seguinte, que aplica uma velocidade constante ao robô.
+
+[source, c++]
+._ServoMotor.cpp_
+---
+void ServoMotor::frente(){
+    //mDireito e mEsquerdo sao variaveis do tipo Servo
+    mDireito.writeMicroseconds(paradoDireito+intensidade); 
+    mEsquerdo.writeMicroseconds(paradoEsquerdo-intensidade); 
+} 
+---
 
 === Rotação dos motores
 * Com o código seguinte, testou-se como os motores se comportavam em relação a direção de rotação e a proporção entre o valor escrito em _Pulse Width Modulation (PWM)_.
